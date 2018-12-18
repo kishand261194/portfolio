@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Generic - Forty by HTML5 UP</title>
+		<title>Cryptographic tools</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -46,40 +46,53 @@
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h1>Image quantization (K-Means clustering) </h1>
-										<a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a>
-										source code
-									</header>
-									Orginal image
-									<br>
-									<img src="images/clustering/baboon.jpg" class="center" alt="rho-theta"  border="2";>
-									<br>
-										 K-means is hard clustering, either the object(point) belongs to a class or it does not.
-										 Here in image quantization we basically repaint the image, with lesser number of colours.
-										 <br>
-										 Following are steps involved in K-means:<br>
-										 If k = 3:<br>
-										 <li>Randomly select mu1, mu2, mu3.</li>
-										 <li>Find the distance from each point to all the free mu's. The point belongs to the cluster, to which it makes the least distance.</li>
-										 <li>Recaculate mu1, mu2, mu3.</li>
-										 <li>Break if two iteration have the same mu values. Meaning the cluster is unchanged.</li>
+										<h1> Cryptographic Tools</h1>
+										Source code <a href="https://github.com/kishand261194/cryptographic-tools" class="icon alt fa-github"><span class="label">GitHub</span></a>
 										<br>
-										Here the points are the colour intensity of each pixel. Finally the three mu will the three colours of the image, all the points classified under a mu will all be colored with the value of the mu.
-										Similary can be extented for k = 5, 10, 20 ...
+									</header>
+									<p>
+										Programming Language used: Python 3
+										<br>
+										Imports/Libraries used: pycryptodome, matplotlib <br><br>
+										Commands to install dependences:<br>
+										- sudo pip install pycryptodome<br>
+										- sudo pip install pycryptodomex<br>
+										<br>
+										Additional(Graph can be commented out):
+										<a href="https://matplotlib.org/faq/installingfaq.html"><span class="label">matplotlib</span></a>
+										<br>
+										- python -mpip install matplotlib<br><br>
+
+										Reference: <a href=" https://pycryptodome.readthedocs.io/en"><span class="label">pycryptodome</span></a>
+									<p>
+									The program will use different cryptographic functions and measure the speed of each. For
+									that purpose, it will create a small file of size 1KB and a large file of size 1MB.
+									These are randomly generated data. The program is to implement the following functionalities:
 									<br>
-									<p>For k = 3 </p>
-									<img src="images/clustering/image23.png" class="center" alt="rho-theta"  border="2";>
+									(a) Creates a 128-bit AES key, encrypt and decrypt each of the two files using AES in the
+											CBC mode.
 									<br>
-									<p>For k = 5  </p>
-									<img src="images/clustering/image8.png" class="center" alt="rho-theta"  border="2";>
+									(b) Creates a 128-bit AES key, encrypt and decrypt each of the two files using AES in the
+											CTR mode.
 									<br>
-									<p>For k = 10 </p>
-									<img src="images/clustering/image1.png" class="center" alt="rho-theta"  border="2";>
+									(c) Repeats part (b) with a 256-bit key. two files using AES in the CTR mode.
 									<br>
+									(d) Computes a hash of each of the files using hash functions SHA-256, SHA-512, and SHA3-256.
 									<br>
-									<p>For k = 20 </p>
-									<img src="images/clustering/image10.png" class="center" alt="rho-theta"  border="2";>
+									(e) Creates a 2048-bit RSA key, encrypt and decrypt the files above with PKCS #1 v2
+											padding (it is also be called OAEP).
 									<br>
+									(f) Repeats part (e) with a 3072-bit key.
+									<br>
+									(g) Creates a 2048-bit DSA key, sign the two files and verify the corresponding signatures.
+											Creating a key takes two parameters, uses 224 bits for the exponent sizes. and hash
+											function algorithm uses SHA-256.
+									<br>
+									(h) Repeats part (g) with a 3072-bit DSA key.
+									<br>
+
+									The above github link has each implemention in python, also has the report attached , in which each result is compared with one other.
+
 								</div>
 							</section>
 					</div>

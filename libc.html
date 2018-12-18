@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Generic - Forty by HTML5 UP</title>
+		<title>Cryptographic tools</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -46,40 +46,26 @@
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h1>Image quantization (K-Means clustering) </h1>
-										<a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a>
-										source code
-									</header>
-									Orginal image
-									<br>
-									<img src="images/clustering/baboon.jpg" class="center" alt="rho-theta"  border="2";>
-									<br>
-										 K-means is hard clustering, either the object(point) belongs to a class or it does not.
-										 Here in image quantization we basically repaint the image, with lesser number of colours.
-										 <br>
-										 Following are steps involved in K-means:<br>
-										 If k = 3:<br>
-										 <li>Randomly select mu1, mu2, mu3.</li>
-										 <li>Find the distance from each point to all the free mu's. The point belongs to the cluster, to which it makes the least distance.</li>
-										 <li>Recaculate mu1, mu2, mu3.</li>
-										 <li>Break if two iteration have the same mu values. Meaning the cluster is unchanged.</li>
+										<h1> Return-to-libc buffer overflow attack</h1>
+										Source code <a href="https://github.com/kishand261194/cryptographic-tools" class="icon alt fa-github"><span class="label">GitHub</span></a>
 										<br>
-										Here the points are the colour intensity of each pixel. Finally the three mu will the three colours of the image, all the points classified under a mu will all be colored with the value of the mu.
-										Similary can be extented for k = 5, 10, 20 ...
-									<br>
-									<p>For k = 3 </p>
-									<img src="images/clustering/image23.png" class="center" alt="rho-theta"  border="2";>
-									<br>
-									<p>For k = 5  </p>
-									<img src="images/clustering/image8.png" class="center" alt="rho-theta"  border="2";>
-									<br>
-									<p>For k = 10 </p>
-									<img src="images/clustering/image1.png" class="center" alt="rho-theta"  border="2";>
-									<br>
-									<br>
-									<p>For k = 20 </p>
-									<img src="images/clustering/image10.png" class="center" alt="rho-theta"  border="2";>
-									<br>
+									</header>
+									<p>Steps performed :
+										<li>First step is set up badfile with say 100 a’s (or any other known ASCII char). As we know that for actual buffer size is 7, any value input lesser than 7 will be accepted without any issue. Anything greater than 7 bytes will result in segmentation fault. When we run the programing in the debugger mode, we can see the return address when segmentation fault arises, we take advantage of this by increasing the number of buffer size and executing the program. The moment we start to override the return address in the stack we will see that the return address will contain some a’s in it, we increase it will the point when everything turn into a’s (hex - 0x41414141 a’s hex value is 41). Now we know the starting position of the EBP. Here we needed 23 a’s to reach the return address, plus 12 bytes for system, exit and shell. Hence 35 is the size of the buffer needed.</li>
+										<li>Disable address randomization and add MYSHELL environment variable.</li>
+										<li>Next step is to get the system, exit, shell’s address. We get the system and exit address from the gdb using  p system, p exit. For getting the shell address we use the given c code. With this knowledge of these address we can set up our  badfile. Using python.</li>
+										<li>We need to get the stack ready in such a way that EBP has system’s address, EBP+4 has exit’s address (Else will exit with error and can be logged), EBP+8 will have shell’s address.</li>
+
+										<br>
+										Environment Setup:<br><br>
+										We initialize a env variable pointing it to /bin/sh making it easier to just reference this env variable: export MYSHELL=”/bin/sh”
+										<br>To disable the random reallocation of virtual address:
+										<br>echo 0 > /proc/sys/kernel/randomize_va_space
+
+									</p>
+
+									The above github link has all the implemention, also has a report attached, in which each result is compared with one other.
+
 								</div>
 							</section>
 					</div>
