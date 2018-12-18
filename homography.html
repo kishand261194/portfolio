@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Forty by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Project</strong> <span>by KD</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="landing.html">Landing</a></li>
+							<li><a href="generic.html">Generic</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+							<li><a href="#" class="button fit">Log In</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1> Image Features and Homography (Panaroma image stiching)</h1>
+										<a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a>
+										<br>
+										<div class="row">
+										  <div class="column">
+										    <img src="images/homography/mountain1.jpg" alt="m1" style="width:100%">
+										  </div>
+										  <div class="column">
+										    <img src="images/homography/mountain2.jpg" alt="m2" style="width:100%">
+										  </div>
+										</div>
+									</header>
+										 Following is the implementation and results:
+										 <br>Step 1 :  <br> Extracted SIFT features and drawn the keypoints for both images.
+										 <div class="row">
+											 <div class="column">
+												 <img src="images/homography/image12.png" alt="m1" style="width:100%">
+											 </div>
+											 <div class="column">
+												 <img src="images/homography/image4.png" alt="m2" style="width:100%">
+											 </div>
+										 </div>
+										<br>
+									<br>
+									<br>Step 2 :  <br>Match the keypoints using k-nearest neighbour (k=2), i.e., for a keypoint in the left image,
+																finding the best 2 matches in the right image. Filter good matches satisfy m.distance <
+																0.75 n.distance, where m is the first match and n is the second match. Draw the match
+																image using cv2.drawMatches for all matches (match image contains both inliers
+																and outliers).
+									<div class="row">
+										<div class="column">
+											<img src="images/homography/image2.png" alt="m1" style="width:100%">
+										</div>
+									</div>
+								 <br>
+								 <br>Step 3 :  <br>Compute the homography matrix H (with RANSAC) from the first image to the second image. Drawing 10 random matches (only inliers).
+								 <div class="row">
+									 <div class="column">
+										 <img src="images/homography/image3.png" alt="m1" style="width:100%">
+									 </div>
+								 </div>
+								<br>
+
+							 <br>Step 3 :  <br>Compute the homography matrix H (with RANSAC) from the first image to the second image. Drawing 10 random matches (only inliers).
+							 <div class="row">
+								 <div class="column">
+									 <img src="images/homography/image3.png" alt="m1" style="width:100%">
+								 </div>
+							 </div>
+							<br>
+
+							<br>Step 4 :  <br>Warping the first image to the second image using H. The resulting image will contain all
+pixels in mountain1.jpg and mountain2.jpg.
+							<div class="row">
+								<div class="column">
+									<img src="images/homography/image7.png" alt="m1" style="width:100%">
+								</div>
+							</div>
+						 <br>
+								</div>
+							</section>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; KD</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

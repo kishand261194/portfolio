@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Forty by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Project</strong> <span>by KD</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="landing.html">Landing</a></li>
+							<li><a href="generic.html">Generic</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+							<li><a href="#" class="button fit">Log In</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Morphology (Noise removal)</h1>
+										<a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a>
+										<br>
+										<img src="images/morphology/noise.jpg" class="center" alt="rho-theta"  border="2";>
+										<br>
+									</header>
+										 The two morphological image processing algorithms that are being used are:
+										 <br>Here A is the image with noise and B is the structuring element (3X3 matix filled with 1’s).
+										 		 We will have to implement erosion, dilation, open and closing for achieving this task.
+										<br>
+									<br>
+									<p>Algorithm one :<br>(A o B) ● B:</p>
+									<img src="images/morphology/image6.jpg" class="center" alt="rho-theta"  border="2";>
+									<br>
+									<p>Algorithm two :<br>(A ● B) o B </p>
+									<img src="images/morphology/image8.jpg" class="center" alt="rho-theta"  border="2";>
+								</div>
+							</section>
+							<p>
+							Note: <br>
+							I compared the two image by subtracting the first algo from the second, and second from the first. In case they are same both the result will be black (Empty image). But following is the result. Hence they are not the same. Following is the result of second algorithm minus the first algorithm. From this we can tell that the second algo produces a slightly bigger image than the first. First minus second was a completely black image, meaning either it is confined inside second algo or exactly same, but with the below result we can conclude that they are not same.
+											<br>
+							<img src="images/morphology/2minus1.jpg" class="center" alt="rho-theta"  border="2";>
+						</p>
+							<section id="two">
+								<div class="inner">
+									<header class="major">
+										<h1>Boundary Extraction</h1>
+										<a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a>
+									</header>
+									<p>Following is the Algorithm used to implement vertical and diagonal line detection:</p>
+									Boundary extraction was done by subtracting the noiseless image and its eroded image
+									Let the noiseless image be A.
+									<br>		A - (A ! B)
+									<br>
+									<p>A extracted from the first algorithm</p>
+									<img src="images/morphology/image7.jpg" class="center" alt="rho-theta"  border="2";>
+									<br>
+									<p>A extracted from the second algorithm</p>
+									<img src="images/morphology/image14.jpg" class="center" alt="rho-theta"  border="2";>
+								</div>
+							</section>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; KD</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

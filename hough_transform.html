@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Forty by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Project</strong> <span>by KD</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="landing.html">Landing</a></li>
+							<li><a href="generic.html">Generic</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+							<li><a href="#" class="button fit">Log In</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Hough Transform (Line detection)</h1>
+										<a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a>
+									</header>
+									<p>Following is the Algorithm used to implement vertical and diagonal line detection:</p>
+									<li>Apply sobel filter for edge detection.</li>
+									<li>Apply global thresholding.</li>
+									<li>Initialize accumulation matrix (theta (-90 to 90) ,  rho) all zeros.</li>
+									<li>Scan through each pixel in image, find rho for all theta from (-90 to 90 ) and increment the position of rho , theta position in accumulation matrix.</li>
+									<li>Now filter out the max intensity points in required theta , say for (a) its vertical so theta is in between -2 - 2.</li>
+									<li>Next using the theta and rho, plot the line in the normal image</li>
+									<br>
+									<p>Rho - Theta plot , brightest points are our lines</p>
+									<img src="images/hough_transform/image5.png" class="center" alt="rho-theta" width="250" height="500" border="2";>
+									<br>
+									<p>Vertical line detection</p>
+									<img src="images/hough_transform/image1.jpg" class="center" alt="rho-theta"  border="2";>
+									<br>
+									<p>Diagonal line detection</p>
+									<img src="images/hough_transform/image3.jpg" class="center" alt="rho-theta"  border="2";>
+								</div>
+							</section>
+							<section id="two">
+								<div class="inner">
+									<header class="major">
+										<h1>Hough Transform (circle detection)</h1>
+										<a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a>
+									</header>
+									<p>Following is the Algorithm used to implement vertical and diagonal line detection:</p>
+									<li>Apply sobel for edge detection (own implementation)</li>
+									<li>Apply global thresholding (own implementation)</li>
+									<li>Initialize accumulation matrix a, b plane to all zeros</li>
+									<li>Scan through each pixel in image, find a and b for all theta from (0 to 360) using a fixed approx radius(can be updated depending on the results) at each point, and increment the point by 1 in a, b. A very beautiful observation can be seen here as all the points in the circumference of the circle will results in circles which will converge at the the center of the circle, making it the brightest point.</li>
+									<li>Now pick the brightest point (highest value points) and draw circles around them, this will result in circles around any circular object in the image, here it is the coins.</li>
+
+									<br>
+									<p>AB plane image, we can see here that the coin centers are the brightest points.</p>
+									<img src="images/hough_transform/image11.png" class="center" alt="rho-theta"  border="2";>
+									<br>
+									<p>Coin detection</p>
+									<img src="images/hough_transform/image12.jpg" class="center" alt="rho-theta"  border="2";>
+								</div>
+							</section>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; KD</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
